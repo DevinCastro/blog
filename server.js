@@ -10,13 +10,16 @@ if (process.env.NODE_ENV === 'production') {
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.use(require('./routes'))
 
 if (process.env.NODE_ENV === 'production') {
   app.get('/*', (req, res) => {
     res.sendFile(join(__dirname, 'client', 'build', 'index.html'))
   })
 }
+
+
+app.use(require('./routes'))
+
 
 require('./db')
   .then(() => app.listen(process.env.PORT || 3001))
