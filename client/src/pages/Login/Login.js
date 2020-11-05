@@ -7,6 +7,10 @@ const Login = () => {
         username: ''
     })
 
+    registerState.handleInputChange = event => {
+        setRegisterState({ ...registerState, [event.target.name]: event.target.value})
+    }
+
 
     return (
         <>
@@ -18,11 +22,16 @@ const Login = () => {
                     <label>Name</label>
                     <input 
                     name='name'
+                    value={registerState.name}
+                    onChange={registerState.handleInputChange}
                     />
                     <label>Username</label>
                     <input 
                     name='username'
+                    value={registerState.userName}
+                    onChange={registerState.handleInputChange}
                     />
+                    <button>Create Account</button>
                 </form>
             </div>
             <div>
