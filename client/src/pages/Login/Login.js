@@ -15,8 +15,13 @@ const Login = () => {
     registerState.handleAddAccount = event => {
         event.preventDefault()
 
-        console.log(registerState)
-        axios.post()
+        // console.log(registerState)
+        axios.post('/api/users', {
+            name: registerState.name,
+            username: registerState.username 
+        })
+        .then(res => {console.log(res)})
+        .catch(err => console.log(err))
     }
 
     return (
@@ -35,7 +40,7 @@ const Login = () => {
                     <label>Username</label>
                     <input 
                     name='username'
-                    value={registerState.userName}
+                    value={registerState.username}
                     onChange={registerState.handleInputChange}
                     />
                     <button onClick={registerState.handleAddAccount}>Create Account</button>
