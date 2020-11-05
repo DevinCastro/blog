@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react'
+import axios from 'axios'
 
 const Login = () => {
 
@@ -11,6 +12,12 @@ const Login = () => {
         setRegisterState({ ...registerState, [event.target.name]: event.target.value})
     }
 
+    registerState.handleAddAccount = event => {
+        event.preventDefault()
+
+        console.log(registerState)
+        axios.post()
+    }
 
     return (
         <>
@@ -31,7 +38,7 @@ const Login = () => {
                     value={registerState.userName}
                     onChange={registerState.handleInputChange}
                     />
-                    <button>Create Account</button>
+                    <button onClick={registerState.handleAddAccount}>Create Account</button>
                 </form>
             </div>
             <div>
