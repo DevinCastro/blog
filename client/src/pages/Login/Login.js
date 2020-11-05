@@ -1,6 +1,13 @@
 import React, { useState, useEffect} from 'react'
 
 const Login = () => {
+
+    const [registerState, setRegisterState] = useState({
+        name: '',
+        username: ''
+    })
+
+
     return (
         <>
             <h1>This is the Login page</h1>
